@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>법무사장규남사무소 - 신뢰와 전문성의 파트너</title>
+    <!-- 폰트: 나눔스퀘어 또는 본고딕 권장 (여기서는 Google Fonts 사용) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- 아이콘 라이브러리 (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- 기본 스타일 리셋 --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333; background-color: #fff; }
+        ul { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- 컬러 변수 --- */
+        :root {
+            --main-navy: #002B5B;
+            --sub-gold: #C5A059;
+            --light-gray: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        /* --- 헤더 --- */
+        header {
+            width: 100%;
+            height: 80px;
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--main-navy); }
+        .nav-menu { display: flex; }
+        .nav-menu li { margin-left: 30px; }
+        .nav-menu li a { font-weight: 500; transition: 0.3s; }
+        .nav-menu li a:hover { color: var(--sub-gold); }
+
+        /* --- 섹션 공통 --- */
+        section { padding: 100px 10% 80px; text-align: center; }
+        .section-title { font-size: 2rem; margin-bottom: 50px; color: var(--main-navy); position: relative; padding-bottom: 15px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--sub-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        /* --- 메인 배너 (Hero) --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,43,91,0.8), rgba(0,43,91,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; word-break: keep-all; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        .btn-call {
+            padding: 15px 40px;
+            background: var(--sub-gold);
+            color: var(--white);
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .btn-call:hover { background: #b08d4a; }
+
+        /* --- 사무소 소개 --- */
+        .about { background: var(--white); }
+        .about-content { display: flex; align-items: center; gap: 50px; text-align: left; flex-wrap: wrap; }
+        .about-image { flex: 1; min-width: 300px; }
+        .about-image img { width: 100%; border-radius: 10px; box-shadow: 10px 10px 0 var(--main-navy); }
+        .about-text { flex: 1.5; min-width: 300px; }
+        .about-text h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--main-navy); }
+        .about-text p { margin-bottom: 15px; color: #666; }
+        .profile-list { margin-top: 20px; padding-left: 20px; border-left: 3px solid var(--sub-gold); }
+        .profile-list li { margin-bottom: 8px; font-weight: 500; }
+
+        /* --- 업무 분야 (Grid) --- */
+        .services { background: var(--light-gray); }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { background: var(--white); padding: 40px 20px; border-radius: 10px; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .service-card i { font-size: 3rem; color: var(--sub-gold); margin-bottom: 20px; }
+        .service-card h4 { margin-bottom: 15px; color: var(--main-navy); }
+        .service-card p { font-size: 0.9rem; color: #777; }
+
+        /* --- 오시는 길 --- */
+        .contact-info { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 30px; }
+        .info-box { flex: 1; min-width: 250px; padding: 20px; background: #fff; border: 1px solid #eee; }
+        .info-box i { font-size: 1.5rem; color: var(--main-navy); margin-bottom: 10px; }
+        .map-placeholder { width: 100%; height: 350px; background: #ddd; margin-top: 30px; display: flex; align-items: center; justify-content: center; }
+
+        /* --- 푸터 --- */
+        footer { background: var(--main-navy); color: #ccc; padding: 40px 5%; font-size: 0.85rem; text-align: center; }
+        footer p { margin-bottom: 10px; }
+
+        /* --- 모바일 하단 고정 버튼 --- */
+        .mobile-call {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--main-navy);
+            color: var(--white);
+            display: none; /* 기본 숨김 */
+            text-align: center;
+            padding: 15px 0;
+            font-weight: bold;
+            z-index: 2000;
+        }
+
+        /* --- 반응형 --- */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* 심플함을 위해 모바일 메뉴는 생략하거나 햄버거 추가 가능 */
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .mobile-call { display: block; }
+            section { padding: 60px 5% 40px; }
+            body { padding-bottom: 50px; } /* 모바일 버튼 공간 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 -->
+    <header>
+        <div class="logo">법무사장규남사무소</div>
+        <ul class="nav-menu">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">사무소 소개</a></li>
+            <li><a href="#services">업무 분야</a></li>
+            <li><a href="#location">오시는 길</a></li>
+        </ul>
+    </header>
+
+    <!-- 메인 배너 -->
+    <section class="hero" id="home">
+        <h1>당신의 든든한 법률 파트너</h1>
+        <p>부동산 등기, 상업 등기, 민사 전문 법무사 사무소입니다.</p>
+        <a href="tel:033-648-7004" class="btn-call"><i class="fa-solid fa-phone"></i> 상담 예약: 033-648-7004</a>
+    </section>
+
+    <!-- 사무소 소개 -->
+    <section class="about" id="about">
+        <h2 class="section-title">사무소 소개</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <!-- 실제 사진으로 교체 가능 -->
+                <img src="https://postfiles.pstatic.net/MjAyNjA3MjVfNzQg/MDAxNzg0OTg5NzA4MTI3.ymIRI4vfsnl9ZBdt2QlqKRpsFy4Y7V5ObuxtPj1E9WYg.1fO57CBSFqap2ktQezlT5macuUhdGxO0vOW75VcgLa8g.JPEG/20260719_110521.jpg?type=w966" alt="법무사 사진">
+            </div>
+            <div class="about-text">
+                <h3>정확하고 신속한 법률 서비스를 약속드립니다.</h3>
+                <p>법무사 장규남 사무소는 고객의 소중한 자산과 권리를 보호하기 위해 최선을 다하고 있습니다. 다년간의 풍부한 경험을 바탕으로 복잡한 법률 문제를 명쾌하게 해결해 드립니다.</p>
+                <p>친절한 상담과 철저한 업무 처리로 고객님의 믿음에 보답하겠습니다.</p>
+                <ul class="profile-list">
+                    <li>대표 법무사 장규남</li>
+                    <li>춘천지방법원 속초지원 등기관, 고성등기소장, 삼척등기소장 근무</li>
+                    <li>춘천지방법원 강릉지원 민형과장, 개인회생위원 근무</li>
+                    <li>춘천지방법원 강릉지원 집행관 근무</li>
+	        <li>춘천지방법원 강릉지원 경매계 신청계 기타집행계 근무</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 업무 분야 -->
+   <!-- 업무 분야 섹션 -->
+<section class="services" id="services">
+    <h2 class="section-title">업무 분야</h2>
+    <div class="service-grid">
+        
+        <!-- 1. 부동산 등기 -->
+        <div class="service-card">
+            <i class="fa-solid fa-house-chimney"></i>
+            <h4>부동산 등기</h4>
+            <p>매매, 증여, 상속, 근저당권 설정 및 전세권 설정 등 부동산 관련 권리를 안전하게 보호합니다.</p>
+        </div>
+
+        <!-- 2. 상업 등기 -->
+        <div class="service-card">
+            <i class="fa-solid fa-building"></i>
+            <h4>상업 등기</h4>
+            <p>법인 설립, 이사 변경, 증자 및 감자, 본점 이전 등 기업 운영에 필수적인 등기 사무를 처리합니다.</p>
+        </div>
+
+        <!-- 3. 민사 / 가사 -->
+        <div class="service-card">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <h4>민사 / 가사</h4>
+            <p>소장 작성, 가압류/가처분, 이혼 및 재산분할, 개명 등 민사와 가정 법률 문제를 해결해 드립니다.</p>
+        </div>
+
+        <!-- 4. 회생 파산 -->
+        <div class="service-card">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <h4>회생 파산</h4>
+            <p>과도한 채무로 고통받는 개인 및 기업을 위해 개인회생, 파산 및 면책 절차를 돕습니다.</p>
+        </div>
+
+    </div>
+</section>
+
+    <!-- 오시는 길 -->
+    <section class="location" id="location">
+        <h2 class="section-title">오시는 길</h2>
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>주소</p>
+                <strong>강원특별자치도 강릉시 강릉대로 285,(블루핀오피스텔) 2층</strong>
+            </div>
+            <div class="info-box">
+                <i class="fa-solid fa-clock"></i>
+                <p>영업시간</p>
+                <strong>평일 09:00 ~ 18:00 (주말/공휴일 휴무)</strong>
+            </div>
+            <div class="info-box">
+                <i class="fa-solid fa-phone-flip"></i>
+                <p>연락처</p>
+                <strong>033-648-7004</strong>
+            </div>
+     <div class="map-placeholder" style="width: 100%; height: 400px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x3561e5e127bbac09%3A0xe3c2a814d5ee4330!2z6rCV7JuQ7Yq567OE7J6Q7LmY64-EIOqwleumieyLnCDqsJXrponrjIDroZwgMjg1!5e0!3m2!1sko!2skr!4v1784991585667!5m2!1sko!2skr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>법무사 장규남 사무소 | 대표: 장규남 </p>
+        <p>전화: 033-648-7004 | 팩스: 033-648-7005 | 이메일: ho6234@naver.com</p>
+        <p>&copy; <span id="year"></span> 장규남 법무사 사무소. All Rights Reserved.</p>
+        <script>document.getElementById("year").innerHTML = new Date().getFullYear();</script>
+    </footer>
+
+    <!-- 모바일 전용 전화 버튼 -->
+    <a href="tel:033-648-7004" class="mobile-call">
+        <i class="fa-solid fa-phone"></i> 전화 상담 연결
+    </a>
+
+    <!-- 스무스 스크롤 자바스크립트 -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
